@@ -1,74 +1,77 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { StyleSheet, ScrollView, Text, View } from "react-native";
+import React from "react";
+import InfoCard from "../components/InfoCard";
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+const homepage1 = require("../../assets/images/home/pages/homepage1.jpg");
+const homepage2 = require("../../assets/images/home/pages/homepage2.jpg");
+const homepage3 = require("../../assets/images/home/pages/homepage3.jpg");
+const homepage4 = require("../../assets/images/home/pages/homepage4.webp");
+const homepage5 = require("../../assets/images/home/pages/homepage5.jpg");
+const homepage6 = require("../../assets/images/home/pages/homepage6.jpg");
+const homepage7 = require("../../assets/images/home/pages/homepage7.webp");
 
 export default function HomeScreen() {
+  const infoCards = [
+    {
+      name: "Introducing the HydroWave™ Hydrogen Water Bottle",
+      detail:
+        "Experience hydration innovation with the HydroWave™ Hydrogen Water Bottle. Combining cutting-edge technology with sleek design, this bottle is perfect for those who value quality and performance.",
+      imageUrl: homepage1,
+    },
+    {
+      name: "Innovation in Every Detail",
+      detail:
+        "At HydroWave, we believe in the power of innovation. Explore the craftsmanship behind our hydrogen water bottle, featuring premium materials and cutting-edge technology. Each image highlights the attention to detail that ensures your bottle is not just functional but a statement of style and sustainability.",
+      imageUrl: homepage2,
+    },
+    {
+      name: "Premium Materials and Innovative Design",
+      detail:
+        "The HydroWave™ is made from high borosilicate glass, known for its durability and resistance to thermal shock. This ensures that your bottle is not only stylish but also built to last.",
+      imageUrl: homepage3,
+    },
+    {
+      name: "Hydrogen-Powered Wellness",
+      detail:
+        "The HydroWave™ bottle features a push-button generator and a portable ioniser, transforming ordinary water into a refreshing, hydrogen-rich beverage.",
+      imageUrl: homepage4,
+    },
+    {
+      name: "Eco-Friendly & Rechargeable for a Greener Tomorrow",
+      detail:
+        "The HydroWave™ bottle is designed as an eco-friendly alternative, single-use plastics, and it’s rechargeable feature helps you enjoy fresh hydrogen-infused water again and again, making it a smart choice for both your health and the environment.",
+      imageUrl: homepage5,
+    },
+    {
+      name: "Advanced Hydrogen Filtration Technology",
+      detail:
+        "The HydroWave™ bottle features state-of-the-art filtration technology that enhances your water with pure hydrogen. Our multi-layer filtration system efficiently infuses hydrogen molecules into the water, improving its taste and promoting better hydration.",
+      imageUrl: homepage6,
+    },
+    {
+      name: "Health-Boosting Benefits of Hydrogen-Infused Water",
+      detail:
+        "Hydrogen-infused water offers superior hydration to increased energy and enhanced antioxidant support.",
+      imageUrl: homepage7,
+    },
+  ];
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <ScrollView style={styles.infoCardContainer}>
+      {infoCards.map((card, index) => (
+        <InfoCard
+          name={card.name}
+          detail={card.detail}
+          imageUrl={card.imageUrl}
+          key={index}
+        ></InfoCard>
+      ))}
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  infoCardContainer: {
+    backgroundColor: "rgb(228, 246, 248)",
   },
 });
