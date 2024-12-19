@@ -57,8 +57,7 @@ const home = () => {
   ];
 
   return (
-    <ScrollView>
-      <Text>home</Text>
+    <ScrollView style={styles.infoCardContainer}>
       {infoCards.map((card, index) => (
         <InfoCard
           name={card.name}
@@ -73,4 +72,9 @@ const home = () => {
 
 export default home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  infoCardContainer: {
+    paddingTop: "10px",
+    backgroundColor: "white",
+  },
+});
