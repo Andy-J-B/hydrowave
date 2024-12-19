@@ -75,6 +75,6 @@ export default home;
 const styles = StyleSheet.create({
   infoCardContainer: {
     paddingTop: "10px",
-    backgroundColor: "white",
+    backgroundColor: "rgb(228, 246, 248)",
   },
 });

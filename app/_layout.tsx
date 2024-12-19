@@ -18,6 +18,19 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
+function CustomHeader() {
+  return (
+    <View style={styles.customHeader}>
+      <Image
+        source={require("../assets/images/home/HydrowaveLogo.png")}
+        style={styles.headerImage}
+        resizeMode="contain"
+      />
+      <Text style={styles.headerTitle}>HYDROWAVE</Text>
+    </View>
+  );
+}
+
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
@@ -41,22 +54,10 @@ export default function RootLayout() {
           <Stack.Screen
             name="(tabs)"
             options={{
-              contentStyle: { justifyContent: "center" },
-              headerStyle: {
-                backgroundColor: "white",
-              },
-              headerTitle: () => (
-                <View style={styles.headerContainer}>
-                  <Image
-                    source={require("../assets/images/home/HydrowaveLogo.png")} // Replace with your image path
-                    style={styles.headerImage}
-                  />
-                  <Text style={styles.headerTitle}>HYDROWAVE</Text>
-                </View>
-              ),
-              headerTitleAlign: "center",
+              header: () => <CustomHeader />, // Custom header component
             }}
           />
+
           <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar style="auto" />
@@ -65,19 +66,21 @@ export default function RootLayout() {
   );
 }
 const styles = StyleSheet.create({
-  headerContainer: {
+  customHeader: {
+    height: 50, // Custom header height
+    backgroundColor: "white",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    flex: 1,
+    paddingHorizontal: 10,
   },
   headerImage: {
-    width: 30,
-    height: 30,
+    width: 25,
+    height: 25,
     marginRight: 8,
   },
   headerTitle: {
     color: "rgb(3, 78, 142)",
-    fontSize: 18,
+    fontSize: 20,
   },
 });
