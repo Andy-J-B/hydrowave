@@ -6,10 +6,16 @@ import {
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import "react-native-reanimated";
-import { View, Image, Text, StyleSheet } from "react-native";
+import {
+  View,
+  Image,
+  Text,
+  StyleSheet,
+  StatusBar,
+  SafeAreaView,
+} from "react-native";
 
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
@@ -20,14 +26,16 @@ SplashScreen.preventAutoHideAsync();
 
 function CustomHeader() {
   return (
-    <View style={styles.customHeader}>
-      <Image
-        source={require("../assets/images/home/HydrowaveLogo.png")}
-        style={styles.headerImage}
-        resizeMode="contain"
-      />
-      <Text style={styles.headerTitle}>HYDROWAVE</Text>
-    </View>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.customHeader}>
+        <Image
+          source={require("../assets/images/home/HydrowaveLogo.png")}
+          style={styles.headerImage}
+          resizeMode="contain"
+        />
+        <Text style={styles.headerTitle}>HYDROWAVE</Text>
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -50,6 +58,7 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <StatusBar backgroundColor="white" barStyle="dark-content" />
         <Stack>
           <Stack.Screen
             name="(tabs)"
@@ -60,12 +69,14 @@ export default function RootLayout() {
 
           <Stack.Screen name="+not-found" />
         </Stack>
-        <StatusBar style="auto" />
       </ThemeProvider>
     </SafeAreaProvider>
   );
 }
 const styles = StyleSheet.create({
+  safeArea: {
+    backgroundColor: "white",
+  },
   customHeader: {
     height: 50, // Custom header height
     backgroundColor: "white",

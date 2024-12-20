@@ -19,15 +19,13 @@ export default function TabLayout() {
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
         tabBarStyle: {
+          backgroundColor: "rgb(3, 78, 142)", // Universal background color
           ...Platform.select({
             ios: {
               position: "absolute", // Keeps the blur effect on iOS
             },
-            android: {
-              backgroundColor: "white", // Same background color for Android
-            },
+            android: {},
           }),
-          backgroundColor: "rgb(3, 78, 142)", // Universal background color
         },
       }}
     >

@@ -74,5 +74,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   infoCardContainer: {
     backgroundColor: "rgb(228, 246, 248)",
+
+    paddingBottom: 60,
   },
 });
