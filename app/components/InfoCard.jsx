@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 200,
+    height: 500,
     borderRadius: 8,
   },
   textContainer: {
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   detail: {
+    marginTop: 5,
     fontSize: 14,
     color: "#666",
   },
