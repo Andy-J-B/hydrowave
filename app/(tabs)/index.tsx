@@ -63,6 +63,7 @@ export default function HomeScreen() {
           name={card.name}
           detail={card.detail}
           imageUrl={card.imageUrl}
+          cardKey={index}
           key={index}
         ></InfoCard>
       ))}

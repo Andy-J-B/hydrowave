@@ -1,10 +1,14 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 
-export default InfoCard = ({ name, detail, imageUrl }) => {
+export default InfoCard = ({ name, detail, imageUrl, cardKey }) => {
+  console.log(cardKey);
   return (
     <View style={styles.card}>
-      <Image source={imageUrl} style={styles.image} />
+      <Image
+        source={imageUrl}
+        style={cardKey === 6 ? styles.image7 : styles.image}
+      />
       <View style={styles.textContainer}>
         <Text style={styles.title}>{name}</Text>
         <Text style={styles.detail}>{detail}</Text>
@@ -40,5 +44,10 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontSize: 14,
     color: "#666",
+  },
+  image7: {
+    width: "100%",
+    borderRadius: 8,
+    resizeMode: "contain",
   },
 });
