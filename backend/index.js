@@ -5,7 +5,9 @@ const app = express();
 const router = express.Router();
 const purchaseRouter = require("./routers/purchaseRouter");
 
-require("dotenv").config();
+if (process.env.NODE_ENV === "development") {
+  require("dotenv").config();
+}
 
 app.use(cors());
 app.use(bodyParser.json());
