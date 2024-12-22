@@ -40,7 +40,6 @@ export default ProductSlideshow = () => {
         <Pressable style={styles.leftButton} onPress={switchImageLeft}>
           <IconSymbol size={28} name="caretleft" color={"black"} />
         </Pressable>
-
         {/* Pan Gesture Handler for Image Swipe */}
         <PanGestureHandler onGestureEvent={onGestureEvent}>
           <View style={styles.imageWrapper}>
@@ -67,4 +66,14 @@ const styles = StyleSheet.create({
     margin: "auto",
   },
   rightButton: { margin: "auto" },
+  imageWrapper: {
+    width: 200,
+    height: 170,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  image: {
+    width: 200,
+    resizeMode: "contain",
+  },
 });
