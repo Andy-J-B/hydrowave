@@ -38,7 +38,7 @@ export default ProductSlideshow = () => {
       <View style={styles.imageContainer}>
         {/* Left Button */}
         <Pressable style={styles.leftButton} onPress={switchImageLeft}>
-          <IconSymbol size={28} name="caret-left" color={"black"} />
+          <IconSymbol size={28} name="caretleft" color={"black"} />
         </Pressable>
 
         {/* Pan Gesture Handler for Image Swipe */}
@@ -50,7 +50,7 @@ export default ProductSlideshow = () => {
 
         {/* Right Button */}
         <Pressable style={styles.rightButton} onPress={switchImageRight}>
-          <IconSymbol size={28} name="caret-right" color={"black"} />
+          <IconSymbol size={28} name="caretright" color={"black"} />
         </Pressable>
       </View>
     </GestureHandlerRootView>
