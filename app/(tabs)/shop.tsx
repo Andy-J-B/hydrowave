@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import { Button } from "react-native-elements";
 import React from "react";
-const shop1 = require("../../assets/images/shop/hydrowaveShop1.png");
 import ProductOptionList from "../components/ProductOptionList";
+import ProductSlideshow from "../components/ProductSlideshow";
 
 export default function ShopScreen() {
   const purchaseOptions = [
@@ -30,9 +30,9 @@ export default function ShopScreen() {
       <View style={styles.header}>
         <Text style={styles.headerText}>FREE SHIPPING ON ALL ORDERS !!!</Text>
       </View>
-      <View style={styles.imageContainer}>
-        <Image source={shop1}></Image>
-      </View>
+
+      <ProductSlideshow></ProductSlideshow>
+
       <Text style={styles.productName}>
         HydroWave™ - The Hydrogen Water Bottle
       </Text>
@@ -57,7 +57,7 @@ export default function ShopScreen() {
       <Button
         titleStyle={styles.buttonTitle}
         buttonStyle={styles.buttonStyle}
-        title="ADD to cart"
+        title="PROCEED TO PURCHASE"
       />
     </ScrollView>
   );
@@ -77,10 +77,7 @@ const styles = StyleSheet.create({
     margin: "auto",
     fontSize: 20,
   },
-  imageContainer: {
-    margin: "auto",
-    marginTop: 20,
-  },
+
   productInfoContainer: {
     marginTop: 20,
     flexDirection: "row",
@@ -115,7 +112,7 @@ const styles = StyleSheet.create({
   productTypes: {},
   buttonStyle: {
     backgroundColor: "rgb(3, 78, 142)",
-    width: 200,
+    width: 300,
     margin: "auto",
   },
   buttonTitle: { fontWeight: "bold", fontSize: 15 },

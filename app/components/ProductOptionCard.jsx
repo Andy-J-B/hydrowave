@@ -40,13 +40,13 @@ const styles = StyleSheet.create({
     padding: 20,
     margin: 10,
     backgroundColor: "white",
-    borderWidth: 2,
+    borderWidth: 3,
     flexDirection: "row",
     borderRadius: 10,
   },
   buttonPressed: {
     borderColor: "rgb(3, 78, 142)",
-    borderWidth: 5,
+    backgroundColor: "rgba(3, 78, 142, 0.1)",
   },
   leftContainer: {
     flexDirection: "column",

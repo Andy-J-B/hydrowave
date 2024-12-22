@@ -17,6 +17,8 @@ const MAPPING = {
   // AntDesign Icons
   "shoppingcart.fill": "shoppingcart",
   infocirlceo: "infocirlceo",
+  caretright: "caretright",
+  caretleft: "caretleft",
 } as Partial<
   Record<
     string, // SF Symbol names
@@ -54,7 +56,12 @@ export function IconSymbol({
   const isMaterialIcon = ["home", "send", "code", "chevron-right"].includes(
     iconName
   ); // Add other MaterialIcons names if needed
-  const isAntDesign = ["shoppingcart", "infocirlceo"].includes(iconName); // Add other AntDesign names if needed
+  const isAntDesign = [
+    "shoppingcart",
+    "infocirlceo",
+    "caretright",
+    "caretleft",
+  ].includes(iconName); // Add other AntDesign names if needed
 
   if (isMaterialIcon) {
     return (
