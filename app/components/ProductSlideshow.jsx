@@ -34,38 +34,26 @@ export default ProductSlideshow = () => {
   };
 
   return (
-    <>
+    <GestureHandlerRootView style={styles.container}>
       <View style={styles.imageContainer}>
+        {/* Left Button */}
         <Pressable style={styles.leftButton} onPress={switchImageLeft}>
-          <IconSymbol size={28} name="caretleft" color={"black"} />
+          <IconSymbol size={28} name="caret-left" color={"black"} />
         </Pressable>
-        <Image source={images[imageNumber]}></Image>
+
+        {/* Pan Gesture Handler for Image Swipe */}
+        <PanGestureHandler onGestureEvent={onGestureEvent}>
+          <View style={styles.imageWrapper}>
+            <Image source={images[imageNumber]} style={styles.image} />
+          </View>
+        </PanGestureHandler>
+
+        {/* Right Button */}
         <Pressable style={styles.rightButton} onPress={switchImageRight}>
-          <IconSymbol size={28} name="caretright" color={"black"} />
+          <IconSymbol size={28} name="caret-right" color={"black"} />
         </Pressable>
       </View>
-
-      <GestureHandlerRootView style={styles.container}>
-        <View style={styles.imageContainer}>
-          {/* Left Button */}
-          <Pressable style={styles.leftButton} onPress={switchImageLeft}>
-            <IconSymbol size={28} name="caret-left" color={"black"} />
-          </Pressable>
-
-          {/* Pan Gesture Handler for Image Swipe */}
-          <PanGestureHandler onGestureEvent={onGestureEvent}>
-            <View style={styles.imageWrapper}>
-              <Image source={images[imageNumber]} style={styles.image} />
-            </View>
-          </PanGestureHandler>
-
-          {/* Right Button */}
-          <Pressable style={styles.rightButton} onPress={switchImageRight}>
-            <IconSymbol size={28} name="caret-right" color={"black"} />
-          </Pressable>
-        </View>
-      </GestureHandlerRootView>
-    </>
+    </GestureHandlerRootView>
   );
 };
 
