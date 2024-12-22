@@ -48,13 +48,13 @@ const styles = StyleSheet.create({
   },
   rightButton: { margin: "auto" },
   imageWrapper: {
-    width: 200,
+    width: 250,
     height: 170,
     justifyContent: "center",
     alignItems: "center",
   },
   image: {
-    width: 200,
+    width: 250,
     resizeMode: "contain",
   },
 });

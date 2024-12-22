@@ -40,11 +40,11 @@ export default function ShopScreen() {
         <Text style={[styles.priceSale, styles.productInfoText]}>
           Sale price $79.99 CAD
         </Text>
-        <Text style={[styles.priceRegular, styles.productInfoText]}>
-          Regular price $92.99 CAD
-        </Text>
-        <View style={[styles.saleSquare, styles.productInfoText]}>
-          <Text style={styles.saleText}>SALE</Text>
+        <View style={styles.saleContainer}>
+          <Text style={[styles.priceRegular]}>Regular price $92.99 CAD</Text>
+          <View style={[styles.productInfoText, styles.saleSquare]}>
+            <Text style={styles.saleText}>SALE</Text>
+          </View>
         </View>
       </View>
       <View style={styles.shopContainer}>
@@ -80,11 +80,11 @@ const styles = StyleSheet.create({
 
   productInfoContainer: {
     marginTop: 20,
-    flexDirection: "row",
-    justifyContent: "center",
   },
   productInfoText: {
-    margin: 10,
+    margin: 1,
+
+    textAlign: "center",
   },
   productName: {
     fontSize: 30,
@@ -103,12 +103,23 @@ const styles = StyleSheet.create({
     width: 50,
     height: 20,
     borderRadius: 5,
+    marginLeft: 5,
   },
   saleText: { color: "white", marginLeft: 7 },
+  saleContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+  },
   shopContainer: {
     margin: "auto",
   },
-  shopContainerTitle: { margin: 20 },
+
+  shopContainerTitle: {
+    margin: 20,
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 25,
+  },
   productTypes: {},
   buttonStyle: {
     backgroundColor: "rgb(3, 78, 142)",
