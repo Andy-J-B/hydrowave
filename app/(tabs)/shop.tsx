@@ -2,8 +2,29 @@ import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import { Button } from "react-native-elements";
 import React from "react";
 const shop1 = require("../../assets/images/shop/hydrowaveShop1.png");
+import ProductOptionCard from "../components/ProductOptionCard";
 
 export default function ShopScreen() {
+  const purchaseOptions = [
+    {
+      unitNumber: 1,
+      costPost: 79.99,
+      costPre: 92.99,
+      sale: 0,
+    },
+    {
+      unitNumber: 2,
+      costPost: 71.99,
+      costPre: 92.99,
+      sale: 10,
+    },
+    {
+      unitNumber: 3,
+      costPost: 63.99,
+      costPre: 92.99,
+      sale: 20,
+    },
+  ];
   return (
     <ScrollView style={styles.scrollViewContainer}>
       <View style={styles.header}>
@@ -28,8 +49,18 @@ export default function ShopScreen() {
       </View>
       <View style={styles.shopContainer}>
         <Text style={styles.shopContainerTitle}>LIMITED TIME OFFER !</Text>
-
-        <View style={styles.productTypes}></View>
+        <View style={styles.productTypes}>
+          {purchaseOptions.map((card, index) => (
+            <ProductOptionCard
+              unitNumber={card.unitNumber}
+              costPost={card.costPost}
+              costPre={card.costPre}
+              sale={card.sale}
+              cardKey={index}
+              key={index}
+            ></ProductOptionCard>
+          ))}
+        </View>
       </View>
 
       <Button
