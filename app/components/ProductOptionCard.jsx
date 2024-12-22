@@ -1,5 +1,5 @@
-import { View, Image, Text, StyleSheet } from "react-native";
-import { Button } from "react-native-elements";
+import { View, Image, Text, StyleSheet, Pressable } from "react-native";
+import { useState } from "react";
 
 export default ProductOptionCard = ({
   unitNumber,
@@ -7,9 +7,17 @@ export default ProductOptionCard = ({
   costPre,
   sale,
   cardKey,
+  isPressed,
+  onPress,
 }) => {
   return (
-    <Button buttonStyle={styles.button}>
+    <Pressable
+      onPress={() => onPress(cardKey)}
+      style={[
+        styles.button,
+        isPressed && styles.buttonPressed, // Apply additional styles when pressed
+      ]}
+    >
       <View style={styles.leftContainer}>
         <Text style={styles.unitNum}>
           {unitNumber} Unit{unitNumber === 1 ? "" : "s"}
@@ -19,13 +27,36 @@ export default ProductOptionCard = ({
       </View>
       {sale !== 0 && (
         <View style={styles.rightContainer}>
-          <Text>{sale}% OFF!</Text>
+          <Text style={styles.sale}>{sale}% OFF!</Text>
         </View>
       )}
-    </Button>
+    </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
-  button: {},
+  button: {
+    height: "auto",
+    padding: 20,
+    margin: 10,
+    backgroundColor: "white",
+    borderWidth: 2,
+    flexDirection: "row",
+    borderRadius: 10,
+  },
+  buttonPressed: {
+    borderColor: "rgb(3, 78, 142)",
+    borderWidth: 5,
+  },
+  leftContainer: {
+    flexDirection: "column",
+  },
+  rightContainer: {},
+  unitNum: {},
+  currentPrice: {},
+  beforePrice: {},
+  rightContainer: {
+    flexDirection: "column",
+  },
+  sale: {},
 });
