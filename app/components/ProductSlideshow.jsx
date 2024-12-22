@@ -1,10 +1,6 @@
 import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { useState } from "react";
-import {
-  GestureHandlerRootView,
-  PanGestureHandler,
-} from "react-native-gesture-handler";
 
 export default ProductSlideshow = () => {
   const images = [
@@ -22,37 +18,22 @@ export default ProductSlideshow = () => {
     setImageNumber((prev) => (prev < images.length - 1 ? prev + 1 : 0));
   };
 
-  // Handling swipe gestures
-  const onGestureEvent = (event) => {
-    if (event.nativeEvent.translationX < -50) {
-      // Swipe Left
-      switchImageRight();
-    } else if (event.nativeEvent.translationX > 50) {
-      // Swipe Right
-      switchImageLeft();
-    }
-  };
-
   return (
-    <GestureHandlerRootView style={styles.container}>
-      <View style={styles.imageContainer}>
-        {/* Left Button */}
-        <Pressable style={styles.leftButton} onPress={switchImageLeft}>
-          <IconSymbol size={28} name="caretleft" color={"black"} />
-        </Pressable>
-        {/* Pan Gesture Handler for Image Swipe */}
-        <PanGestureHandler onGestureEvent={onGestureEvent}>
-          <View style={styles.imageWrapper}>
-            <Image source={images[imageNumber]} style={styles.image} />
-          </View>
-        </PanGestureHandler>
+    <View style={styles.imageContainer}>
+      {/* Left Button */}
+      <Pressable style={styles.leftButton} onPress={switchImageLeft}>
+        <IconSymbol size={28} name="caretleft" color={"black"} />
+      </Pressable>
 
-        {/* Right Button */}
-        <Pressable style={styles.rightButton} onPress={switchImageRight}>
-          <IconSymbol size={28} name="caretright" color={"black"} />
-        </Pressable>
+      <View style={styles.imageWrapper}>
+        <Image source={images[imageNumber]} style={styles.image} />
       </View>
-    </GestureHandlerRootView>
+
+      {/* Right Button */}
+      <Pressable style={styles.rightButton} onPress={switchImageRight}>
+        <IconSymbol size={28} name="caretright" color={"black"} />
+      </Pressable>
+    </View>
   );
 };
 
