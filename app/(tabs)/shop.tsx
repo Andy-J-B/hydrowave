@@ -3,6 +3,7 @@ import { Button } from "react-native-elements";
 import React from "react";
 import ProductOptionList from "../components/ProductOptionList";
 import ProductSlideshow from "../components/ProductSlideshow";
+import OpenShopify from "./OpenShopify";
 
 export default function ShopScreen() {
   const purchaseOptions = [
@@ -58,6 +59,7 @@ export default function ShopScreen() {
         titleStyle={styles.buttonTitle}
         buttonStyle={styles.buttonStyle}
         title="PROCEED TO PURCHASE"
+        onPress={OpenShopify}
       />
     </ScrollView>
   );
